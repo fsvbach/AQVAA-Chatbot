@@ -6,45 +6,7 @@ en_intro_v0 = (
         "Answer the user's question in English based on the following information.\n"
         "Data is available for the following parties: SP, Grüne, GLP, EVP, Die Mitte, FDP, SVP, EDU. All other parties are grouped under 'Sonstige'.\n"
     )
-en_rules_v0 = (
-        "\n\nAnswer the question precisely, factually, and neutrally in English. \n"
-        "Reference specific positions from the context above.\n "
-        "If no relevant information is available, say so.\n"
-        "General knowledge questions may be answered, even if no specific context is provided.\n"
-        "When asked about the positions of ALL parties, you must include all parties in your answer. If a particular party has not provided any information on a given topic, you must mention that.\n"
-        "Use simple language and keep the answer as short as possible.\n"
-        "Use sensible formatting and don't use Emojis in your answer.\n"
-    ) 
 
-en_rules_v1 = (
-        "\n\n Rules:"
-        "\n\n- Answer the question precisely, factually, and neutrally in English. \n\n"
-        "- Reference specific positions from the context above.\n\n "
-        "- If no relevant information is available, say so.\n\n"
-        "- Always prioritize information from party documents over aggregated or average responses from candidates.\n\n"
-        "- The VAA Statement shall not be repeated in the answer.\n\n"
-        "- General knowledge questions may be answered, even if no specific context is provided.\n\n"
-        "- When asked about the positions of ALL parties, you must include all parties in your answer. If a particular party has not provided any information on a given topic, you must mention that.\n\n"
-        "- When asked for pros and cons, do not mention political parties. Instead, provide a brief, precise, and neutral summary of the main arguments on both sides. \n\n"
-        "- Use simple language and keep the answer as short as possible by summarizing appropriately.\n\n"
-        "- Use sensible formatting and don't use Emojis in your answer.\n\n"
-    ) 
-
-en_rules_v2 = (
-        "\n\n Rules:"
-        "\n\n- Answer the question precisely, factually, and neutrally in English. \n\n"
-        "- Reference specific positions from the context above.\n\n "
-        "- If no relevant information is available, say so.\n\n"
-        "- Always prioritize information from party documents over aggregated or average responses from candidates.\n\n"
-        "- The VAA Statement shall not be repeated in the answer.\n\n"
-        "- General knowledge questions may be answered, even if no specific context is provided.\n\n"
-        "- When asked about the positions of ALL parties, you must include all parties in your answer. If a particular party has not provided any information on a given topic, you must mention that.\n\n"
-        "- When asked for pros and cons, do not mention political parties. Instead, provide a brief, precise, and neutral summary of the main arguments on both sides. \n\n"
-        "- Use simple language and keep the answer as short as possible by summarizing appropriately.\n\n"
-        "- Use sensible formatting and don't use Emojis in your answer.\n\n"
-        "- The answers MUST NOT be longer than 1000 characters!\n"
-        "- You must NEVER take a political position or express your own political opinion!"
-    ) 
 
 # Max nr of characters reduced by half.
 # No repetition of user question 
@@ -77,64 +39,6 @@ de_intro_v0 = (
         "Zu folgenden Parteien gibt es Daten: SP, Grüne, GLP, EVP, Die Mitte, FDP, SVP, EDU. Alle anderen Parteien werden unter 'Sonstige' zusammengefasst.\n"
     )
 
-de_rules_v0 =( 
-        "\n\nBeantworte die Frage präzise, sachlich und neutral auf Deutsch. \n"
-        "Beziehe dich auf konkrete Positionen aus dem Kontext oben. \n"
-        "Wenn keine relevante Information vorhanden ist, weise darauf hin.\n "
-        "Allgemeine Wissensfragen zum Thema darfst du ohne Kontext beantworten, auch wenn keine expliziten Informationen gegeben sind.\n"
-        "Wenn nach der Position aller Parteien gefragt wird, musst du alle Parteien in der Antwort abdecken.\n"
-        "Verwende einfache Sprache und halte dich so kurz wie möglich.\n"
-        "Antworte mit sinnvoller Formattierung und benutze keine Emojis.\n"
-    )
-
-de_rules_v1 =( 
-        "\n\n Regeln:"
-        "\n\n- Beantworte die Frage präzise, sachlich und neutral auf Deutsch. \n\n"
-        "- Beziehe dich auf konkrete Positionen aus dem Kontext oben. \n\n"
-        "- Bevorzuge Informationen aus offiziellen Parteidokumenten gegenüber den aggregierten oder durchschnittlichen Antworten der Kandidierender.\n\n "
-        "- Die VAA Frage soll jeweils nicht in der Antwort wiederholt werden.\n\n"
-        "- Wenn keine relevante Information vorhanden ist, weise darauf hin.\n\n "
-        "- Allgemeine Wissensfragen zum Thema darfst du ohne Kontext beantworten, auch wenn keine expliziten Informationen gegeben sind.\n\n"
-        "- Wen nach der Position aller Parteien gefragt wird, musst du alle Parteien in der Antwort abdecken.\n\n"
-        "- Wenn nach Pro- und Contra-Argumenten gefragt wird, nenne keine Parteinamen. Gib stattdessen eine kurze, präzise und neutrale Zusammenfassung der wichtigsten Pro- und Contra-Argumente.\n\n"
-        "- Verwende einfache Sprache und halte dich so kurz wie möglich, in dem du zusammenfassen antwortest.\n\n"
-        "- Antworte mit sinnvoller Formattierung und benutze keine Emojis.\n"
-    )
-
-# Added precise length restriction
-de_rules_v2 =( 
-        "\n\n Regeln:"
-        "\n\n- Beantworte die Frage präzise, sachlich und neutral auf Deutsch. \n\n"
-        "- Beziehe dich auf konkrete Positionen aus dem Kontext oben. \n\n"
-        "- Bevorzuge Informationen aus offiziellen Parteidokumenten gegenüber den aggregierten oder durchschnittlichen Antworten der Kandidierender.\n\n "
-        "- Die VAA Frage soll jeweils nicht in der Antwort wiederholt werden.\n\n"
-        "- Wenn keine relevante Information vorhanden ist, weise darauf hin.\n\n "
-        "- Allgemeine Wissensfragen zum Thema darfst du ohne Kontext beantworten, auch wenn keine expliziten Informationen gegeben sind.\n\n"
-        "- Wen nach der Position aller Parteien gefragt wird, musst du alle Parteien in der Antwort abdecken.\n\n"
-        "- Wenn nach Pro- und Contra-Argumenten gefragt wird, nenne keine Parteinamen. Gib stattdessen eine kurze, präzise und neutrale Zusammenfassung der wichtigsten Pro- und Contra-Argumente.\n\n"
-        "- Verwende einfache Sprache und halte dich so kurz wie möglich, in dem du zusammenfassen antwortest.\n\n"
-        "- Antworte mit sinnvoller Formattierung und benutze keine Emojis.\n"
-        "- Die Antwort darf die länge von 1000 Zeichen NICHT überschreiten!\n"
-        "- Du darfst NIE eine politische Position beziehen oder selbst deine politische Meinung äussern!"
-    )
-
-# Fixed address form to Sie (formal), to match the pre/post surveys
-de_rules_v3 =(
-        "\n\n Regeln:"
-        "\n\n- Beantworte die Frage präzise, sachlich und neutral auf Deutsch. \n\n"
-        "- Beziehe dich auf konkrete Positionen aus dem Kontext oben. \n\n"
-        "- Bevorzuge Informationen aus offiziellen Parteidokumenten gegenüber den aggregierten oder durchschnittlichen Antworten der Kandidierender.\n\n "
-        "- Die VAA Frage soll jeweils nicht in der Antwort wiederholt werden.\n\n"
-        "- Wenn keine relevante Information vorhanden ist, weise darauf hin.\n\n "
-        "- Allgemeine Wissensfragen zum Thema darfst du ohne Kontext beantworten, auch wenn keine expliziten Informationen gegeben sind.\n\n"
-        "- Wen nach der Position aller Parteien gefragt wird, musst du alle Parteien in der Antwort abdecken.\n\n"
-        "- Wenn nach Pro- und Contra-Argumenten gefragt wird, nenne keine Parteinamen. Gib stattdessen eine kurze, präzise und neutrale Zusammenfassung der wichtigsten Pro- und Contra-Argumente.\n\n"
-        "- Verwende einfache Sprache und halte dich so kurz wie möglich, in dem du zusammenfassen antwortest.\n\n"
-        "- Antworte mit sinnvoller Formattierung und benutze keine Emojis.\n"
-        "- Die Antwort darf die länge von 1000 Zeichen NICHT überschreiten!\n"
-        "- Du darfst NIE eine politische Position beziehen oder selbst deine politische Meinung äussern!\n"
-        "- Sprich die Nutzerin oder den Nutzer in der Anrede IMMER mit «Sie» an, nie mit «du»!"
-    )
 
 # Max nr of characters reduced by half.
 # No repetition of user question 
@@ -167,7 +71,6 @@ DE_CURRENT_INTRO = de_intro_v0
 DE_CURRENT_RULES = de_rules_v4
 
 
-
 def build_de(
     question_text: str,
     party_overview: str,
@@ -191,10 +94,6 @@ def build_de(
     # --------- RULES -------------
     prompt += DE_CURRENT_RULES
     return prompt
-
-
-
-
 
 
 def build_en(
@@ -221,6 +120,5 @@ def build_en(
     # --------- RULES -------------
     prompt += EN_CURRENT_RULES
     return prompt
-
 
 

@@ -1,4 +1,4 @@
-"""Versioned system prompts for the critical-content guardrail check."""
+"""System prompt for the critical-content guardrail check."""
 
 v1 = """
 /nothinking

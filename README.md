@@ -1,13 +1,24 @@
 # Chatbot Service (RAG)
 
-FastAPI microservice implementing the RAG chatbot. It runs in two phases: an
-offline index build at startup, and an online per-message pipeline. The stage
-names below map onto the thesis System Design chapter.
+FastAPI microservice implementing the RAG chatbot of the paper cited below. It
+runs in two phases: an offline index build at startup, and an online per-message
+pipeline. The stage names below follow the module descriptions in the paper.
 
 It is the chatbot service of the [AQVAA platform](https://github.com/fsvbach/AQVAA-Platform):
 the platform's backend forwards chat requests to it, and it reads the smartvote
 data (questions, candidates, reactions and comments) from the platform, so that
 data is uploaded once, into the platform's database.
+
+## Paper
+
+> Báez Santamaría, S., Salvisberg, P., Bachmann, F.: Comparing Dialogue Management
+> Strategies with a Modular Platform for Conversational Agent Voting Advice
+> Applications. In: CONVERSATIONS 2026. Lecture Notes in Computer Science,
+> Springer (2026).
+
+The prompts as deployed in the user study, the module benchmarks and the study
+data are in the companion repository
+[conversations-cavaa-paper](https://github.com/fsvbach/conversations-cavaa-paper).
 
 ## Setup
 
@@ -76,7 +87,7 @@ Embedding: `rag/embedder*.py`.  Vector store: `rag/vector_store.py`.
 
 ## Online phase — per user message
 
-Pipeline stages (see thesis, System Design chapter):
+Pipeline stages (see the Modules section of the paper):
 
 1. Query Rewriter  — `rag/rewriter.py`           (contextualize message -> self-contained query)
 2. Guardrail       — `rag/guardrail.py`          (4 parallel checks; canned reply on violation)

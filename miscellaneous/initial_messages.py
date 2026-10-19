@@ -47,45 +47,6 @@ INITIAL_MESSAGES: dict[str, dict[str, str]] = {
         ),
     },
 
-    "32275": {
-        "de": (
-            "Lassen Sie uns über die **freie Marktwirtschaft** sprechen. In der Politik wird oft darüber gestritten, "
-            "wie viel Freiheit der Markt braucht und wie viel Kontrolle durch den Staat notwendig ist. "
-            "Haben Sie dazu gleich eine Frage? Oder soll ich Ihnen erstmal erklären, was man unter der **freien Marktwirtschaft** versteht?"
-        ),
-        "en": (
-            "Let's talk about **free market economy**. In politics, there's often debate about "
-            "how much freedom the market needs and how much regulation by the state is necessary. "
-            "Do you have a question right away? Or would you like me to first explain what **free market economics** means?"
-        ),
-    },
-
-    "32280":{
-        "de": (
-            "Nun sprechen wir über die Rolle der **Wirtschaft** beim **Umweltschutz**. "
-            "In der Politik wird oft gestritten, wie viel Verantwortung Unternehmen tragen sollen und welche Rolle der Staat dabei spielt. "
-            "Haben Sie gleich eine Frage dazu? Oder soll ich Ihnen kurz erklären, worum es bei diesem Thema geht?"
-        ),
-        "en": (
-            "Now let's talk about the role of **business and the economy** in **environmental protection**. "
-            "In politics, there's often debate about how much responsibility companies should bear and what role the state should play. "
-            "Do you have a question right away? Or would you like me to briefly explain what this topic is about?"
-        ),
-    },
-
-    "32281":{
-        "de": (
-            "Wir sind beim letzten der fünf Themen angelangt: **Soziale Wohlfahrt**. "
-            "Dabei geht es um Fragen wie: Wie viel soll der Staat für seine Bürgerinnen und Bürger absichern, und wo liegt die Eigenverantwortung? "
-            "Haben Sie gleich eine Frage dazu? Oder soll ich Ihnen erstmal erklären, was man unter **sozialer Wohlfahrt** versteht?"
-        ),
-        "en": (
-            "We've reached the last of the five topics: **social welfare**. "
-            "This covers questions like: how much should the state provide for its citizens, and where does personal responsibility begin? "
-            "Do you have a question right away? Or would you like me to first explain what **social welfare** means?"
-        ),
-    },
-    
 }
 
 

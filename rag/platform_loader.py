@@ -112,7 +112,7 @@ def _candidate_documents(
     """One Document per (candidate, question) pair.
 
     Each document text looks like:
-        "Daria Schönholzer (Partei: FDP, Ort: Elsau) zur Frage:Befürworten Sie ...?':
+        "Benno Beispiel (Partei: FDP, Ort: Musterstadt) zur Frage:Befürworten Sie ...?':
          Stimme zu.Kommentar: "Durch die schrittweise Erhöhung ..."."
 
     Metadata: candidate_id, name, party, question_id, category, value, source, has_comment.

@@ -1,4 +1,4 @@
-"""Versioned system prompts for the vote-intention guardrail check."""
+"""System prompt for the vote-intention guardrail check."""
 
 v1 = """
 /nothinking
