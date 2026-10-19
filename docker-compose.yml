@@ -1,0 +1,114 @@
+name: aqvaa-chatbot
+
+# The chatbot joins the AQVAA platform's `aqvaa` network, so start the platform
+# first. There the backend reaches the chatbot at http://chatbot:8090 and the
+# chatbot fetches its candidate data from http://backend:3000.
+services:
+    chatbot:
+        container_name: chatbot
+        image: "chatbot"
+        restart: always
+        env_file:
+            - .env
+        environment:
+            LLM_MILVUS_URI: http://milvus-standalone:19530
+            LLM_PHOENIX_ENDPOINT: http://phoenix:6006/v1/traces
+            LLM_PLATFORM_URL: http://backend:3000
+        build:
+            context: .
+        ports:
+            - "127.0.0.1:${CHATBOT_PORT}:8090"
+        volumes:
+            # party_manifestos/, additional_question_info.json, study_context/
+            - "${CHATBOT_DATA_DIR:-./data}:/app/data:ro"
+        depends_on:
+            milvus-standalone:
+                condition: service_healthy
+        networks:
+            - default
+            - aqvaa
+
+    phoenix:
+        container_name: phoenix
+        image: arizephoenix/phoenix:latest
+        restart: always
+        ports:
+            - "127.0.0.1:6006:6006"
+        volumes:
+            - phoenix_data:/root/.phoenix
+
+    milvus-etcd:
+        container_name: milvus-etcd
+        image: "quay.io/coreos/etcd:${ETCD_VERSION}"
+        restart: always
+        environment:
+            - ETCD_AUTO_COMPACTION_MODE=revision
+            - ETCD_AUTO_COMPACTION_RETENTION=1000
+            - ETCD_QUOTA_BACKEND_BYTES=4294967296
+            - ETCD_SNAPSHOT_COUNT=50000
+        command: etcd -advertise-client-urls=http://127.0.0.1:2379 -listen-client-urls http://0.0.0.0:2379 --data-dir /etcd
+        volumes:
+            - milvus_etcd:/etcd
+        healthcheck:
+            test: ["CMD", "etcdctl", "endpoint", "health"]
+            interval: 30s
+            timeout: 20s
+            retries: 3
+
+    milvus-minio:
+        container_name: milvus-minio
+        image: "minio/minio:${MINIO_VERSION}"
+        restart: always
+        environment:
+            MINIO_ACCESS_KEY: minioadmin
+            MINIO_SECRET_KEY: minioadmin
+        command: minio server /minio_data --console-address ":9001"
+        volumes:
+            - milvus_minio:/minio_data
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+            interval: 30s
+            timeout: 20s
+            retries: 3
+
+    milvus-standalone:
+        container_name: milvus-standalone
+        image: "milvusdb/milvus:${MILVUS_VERSION}"
+        restart: always
+        command: ["milvus", "run", "standalone"]
+        security_opt:
+            - seccomp:unconfined
+        environment:
+            ETCD_ENDPOINTS: milvus-etcd:2379
+            MINIO_ADDRESS: milvus-minio:9000
+            MINIO_REGION: us-east-1 # needs to be set, but has no effect
+            LOG_LEVEL: warn
+        volumes:
+            - milvus_data:/var/lib/milvus
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
+            interval: 30s
+            start_period: 90s
+            timeout: 20s
+            retries: 3
+        ports:
+            - "127.0.0.1:${MILVUS_PORT:-19530}:19530"
+            - "127.0.0.1:9091:9091"
+        depends_on:
+            milvus-etcd:
+                condition: service_healthy
+            milvus-minio:
+                condition: service_healthy
+
+networks:
+    aqvaa:
+        external: true
+
+volumes:
+    phoenix_data:
+    milvus_etcd:
+        name: milvus_etcd
+    milvus_minio:
+        name: milvus_minio
+    milvus_data:
+        name: milvus_data
