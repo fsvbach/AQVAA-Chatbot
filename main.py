@@ -28,7 +28,12 @@ async def lifespan(app: FastAPI):
         setup_tracing(settings.phoenix_endpoint, settings.phoenix_project_name)
     else:
         logger.info("RAG Tracing disabled. To enable tracing, set LLM_TRACING_ENABLED=true in your .env file. (Check README.md for more details)")
-    await build_index()
+    try:
+        await build_index()
+    except Exception:
+        # e.g. embedding server not up yet: still serve the routes that need no
+        # index (opening messages). Restart once the models are reachable.
+        logger.exception("Index build failed — starting WITHOUT an index.")
     logger.info("LLM microservice ready.")
     yield
     await close_embedder_client()

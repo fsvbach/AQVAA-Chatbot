@@ -57,7 +57,7 @@ services:
 
     milvus-minio:
         container_name: milvus-minio
-        image: "minio/minio:${MINIO_VERSION}"
+        image: "milvusdb/minio:${MINIO_VERSION}"
         restart: always
         environment:
             MINIO_ACCESS_KEY: minioadmin
